@@ -1,4 +1,4 @@
-module github.com/naamancurtis/mongo-go-struct-to-bson/mapper
+module github.com/BukinPK/struct-to-bson/mapper
 
 go 1.12
 

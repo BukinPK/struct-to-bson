@@ -1,4 +1,4 @@
-// Provides utility methods to support the converting of structs to bson maps for use in various MongoDB queries/patch updates.
+// Package mapper Provides utility methods to support the converting of structs to bson maps for use in various MongoDB queries/patch updates.
 //
 // It is intended to be used alongside the Mongo-Go Driver
 package mapper
@@ -13,21 +13,21 @@ import (
 // Package built based off https://github.com/fatih/structs/
 
 var (
-	// By default, this package uses `bson` as the tag name
+	// DefaultTagName By default, this package uses `bson` as the tag name
 	// You can over-write this once you have wrapped your struct
 	// in the mapping struct (StructToBSON) by chaining the
 	// .SetTagName() call on the wrapped struct.
 	DefaultTagName = "bson"
 )
 
-// StructToBson is the wrapper for a struct that enables this package to work
+// StructToBSON is the wrapper for a struct that enables this package to work
 type StructToBSON struct {
 	raw     interface{}
 	value   reflect.Value
 	TagName string
 }
 
-// MappingOpts allows the setting of options which drive the behaviour behind how the struct is parsed
+// MappingOpts allows the setting of options which drive the behavior behind how the struct is parsed
 type MappingOpts struct {
 	// Will just return bson.M { "_id": idVal } if the "_id" tag is present in that struct,
 	// if it is not present or holds a zero value it will map the struct as you would expect.
